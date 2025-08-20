@@ -4,14 +4,14 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 const form = document.querySelector(".form");
-const loader = document.querySelector(".loader"); // вже існуючий span
+const loader = document.querySelector(".loader"); 
 
 function showLoader() {
-  loader.classList.add("visible"); // показати
+  loader.classList.add("visible"); 
 }
 
 function hideLoader() {
-  loader.classList.remove("visible"); // сховати
+  loader.classList.remove("visible"); 
 }
 
 form.addEventListener("submit", async (e) => {
@@ -30,10 +30,22 @@ form.addEventListener("submit", async (e) => {
     const images = await getImagesByQuery(query);
 
     if (!images.hits || images.hits.length === 0) {
-      iziToast.error({
-        title: "Error",
-        message: "Sorry, there are no images matching your search query. Please try again!"
-      });
+     iziToast.show({
+  message: "Sorry, there are no images matching your search query.<br>Please try again!",
+  position: "topRight",
+  timeout: 4000,
+  close: true,
+  progressBar: false,
+  backgroundColor: "#f44336",   
+  messageColor: "#fff",
+  layout: 2,                   
+  maxWidth: 420,
+  class: "custom-toast",
+  icon: "fa fa-times-circle"    
+});
+
+
+
       return; 
     }
 

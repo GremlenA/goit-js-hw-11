@@ -113,3 +113,26 @@ body {
   font-weight: 600;
   color: #000;
 }
+
+
+.iziToast.custom-toast {
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+
+.iziToast.custom-toast .iziToast-icon {
+  margin-right: 12px;
+  color: #ffffff;        
+  font-size: 22px;    
+  align-self: center; 
+}
+
+
+.iziToast.custom-toast .iziToast-message {
+  white-space: normal; 
+  word-wrap: break-word;
+}
