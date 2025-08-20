@@ -4,13 +4,15 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 const form = document.querySelector(".form");
+const loader = document.querySelector(".loader"); // вже існуючий span
 
+function showLoader() {
+  loader.classList.add("visible"); // показати
+}
 
-const loader = document.createElement("p");
-loader.classList.add("loader");
-loader.textContent = "Loading images, please wait...";
-loader.style.display = "none";
-form.insertAdjacentElement("afterend", loader);
+function hideLoader() {
+  loader.classList.remove("visible"); // сховати
+}
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -22,7 +24,7 @@ form.addEventListener("submit", async (e) => {
   }
 
   clearGallery();     
-  loader.style.display = "block";
+  showLoader();
 
   try {
     const images = await getImagesByQuery(query);
@@ -41,6 +43,6 @@ form.addEventListener("submit", async (e) => {
     iziToast.error({ title: "Error", message: "Failed to fetch images. Try later!" });
     console.error("API Error:", error);
   } finally {
-    loader.style.display = "none";  
+    hideLoader();
   }
 });
