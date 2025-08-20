@@ -1,7 +1,6 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-
 let lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionDelay: 250,
@@ -14,9 +13,7 @@ export function createGallery(images) {
     return;
   }
 
- 
   gallery.innerHTML = '';
-
 
   const cards = images.map(img => `
     <li class="gallery-item">
@@ -34,7 +31,6 @@ export function createGallery(images) {
 
   gallery.innerHTML = cards;
 
-
   lightbox.refresh();
 }
 
@@ -42,5 +38,19 @@ export function clearGallery() {
   const gallery = document.querySelector(".gallery");
   if (gallery) {
     gallery.innerHTML = '';
+  }
+}
+
+export function showLoader() {
+  const loader = document.querySelector(".loader");
+  if (loader) {
+    loader.classList.add("visible");
+  }
+}
+
+export function hideLoader() {
+  const loader = document.querySelector(".loader");
+  if (loader) {
+    loader.classList.remove("visible");
   }
 }
