@@ -1,21 +1,18 @@
 @import url('./reset.css');
 @import url('./base.css');
 .loader {
-  display: none;
-  margin-top: 12px;
-  font-size: 16px;
-  font-weight: 400;
-  color: #2c2c3c;
-  font-family: Arial, sans-serif;
+  display: block;
   text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  margin: 20px auto;
+  font-size: 16px;
+  font-style: italic;
+  color: #555;
 }
 
-.loader.visible {
-  display: block;
-  opacity: 1;
+.loader.hidden {
+  display: none;
 }
+
 
 
 
@@ -135,4 +132,30 @@ body {
 .iziToast.custom-toast .iziToast-message {
   white-space: normal; 
   word-wrap: break-word;
+}
+
+.load-more {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #3b82f6; /* яскраво-синій */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.load-more:hover {
+  background-color: #2563eb; /* трохи темніший синій */
+}
+
+.load-more:active {
+  transform: scale(0.97);
+}
+
+.load-more.hidden {
+  display: none;
 }

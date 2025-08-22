@@ -6,14 +6,12 @@ let lightbox = new SimpleLightbox(".gallery a", {
   captionDelay: 250,
 });
 
-export function createGallery(images) {
+export function renderGallery(images) {
   const gallery = document.querySelector(".gallery");
   if (!gallery) {
     console.error("Gallery container not found!");
     return;
   }
-
-  gallery.innerHTML = '';
 
   const cards = images.map(img => `
     <li class="gallery-item">
@@ -29,7 +27,7 @@ export function createGallery(images) {
     </li>
   `).join('');
 
-  gallery.innerHTML = cards;
+  gallery.insertAdjacentHTML("beforeend", cards);
 
   lightbox.refresh();
 }
